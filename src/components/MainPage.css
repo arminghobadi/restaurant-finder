@@ -53,6 +53,15 @@
   background-color: gray;
 }
 
+.main-container > .nothing-found {
+  display: flex;
+  margin: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+
 .main-container > .bottom-section {
   display: flex;
   flex-direction: row;

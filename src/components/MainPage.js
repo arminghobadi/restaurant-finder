@@ -68,6 +68,7 @@ export class MainPage extends React.Component {
       }
     }
     if (actionType) {
+      if (!city) return null
       const fetchRes = await fetch(`https://opentable.herokuapp.com/api/restaurants?per_page=${numRowsPerPage}&city=${city}&page=${currentPageIndex}`)
       const searchResult = await fetchRes.json()
       let newNumPages = Math.floor(searchResult['total_entries'] / numRowsPerPage)
@@ -88,7 +89,7 @@ export class MainPage extends React.Component {
   }
 
   render(){
-    const { restaurants, currentPageIndex, numPages, numRowsPerPage, searchCityInputVal } = this.state
+    const { restaurants, currentPageIndex, numPages, numRowsPerPage, searchCityInputVal, totalEnties } = this.state
 
     return (
       <div className='main-container' style={{ height: this.state.height}}>
@@ -113,6 +114,9 @@ export class MainPage extends React.Component {
             Search
           </button>
         </div>
+        {
+          totalEnties === 0 ? <div className='nothing-found'>No restaurant found withing that city</div> : null
+        }
         
         <Table restaurants={restaurants} currentPage={currentPageIndex} numRowsPerPage={numRowsPerPage} />
         <div className='bottom-section'>
