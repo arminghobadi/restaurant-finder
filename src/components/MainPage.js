@@ -68,7 +68,7 @@ export class MainPage extends React.Component {
       }
     }
     if (actionType) {
-      const fetchRes = await fetch(`http://opentable.herokuapp.com/api/restaurants?per_page=${numRowsPerPage}&city=${city}&page=${currentPageIndex}`)
+      const fetchRes = await fetch(`https://opentable.herokuapp.com/api/restaurants?per_page=${numRowsPerPage}&city=${city}&page=${currentPageIndex}`)
       const searchResult = await fetchRes.json()
       let newNumPages = Math.floor(searchResult['total_entries'] / numRowsPerPage)
       if (searchResult['total_entries'] % numRowsPerPage){
