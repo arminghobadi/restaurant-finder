@@ -1,0 +1,96 @@
+.main-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.main-container > .navbar {
+  width: 100%;
+  display: flex;
+  background-color: purple;
+  height: 3em;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.main-container > .search-section {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2em;
+  align-items: center;
+}
+
+.main-container > .search-section > .search-text {
+  font-size: 20px;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.main-container > .search-section > .city-text-input {
+  width: 20em;
+  height: 3em;
+  font-size: 15px;
+  border: none;
+  border-bottom: solid 1px purple;
+  margin-right: 2em;
+}
+
+.main-container > .search-section > .search-button {
+  height: 2em;
+  width: 10em;
+  border: none;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+  font-size: 20px;
+}
+
+.main-container > .search-section > .search-button:disabled {
+  background-color: gray;
+}
+
+.main-container > .bottom-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: static;
+  bottom: 1em;
+}
+
+.main-container > .bottom-section > .choose-num-rows-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-container > .bottom-section > .choose-num-rows-section > .choose-row-input {
+  margin-right: 3px;
+}
+
+.main-container > .bottom-section > .page-control-section > .page-control-button {
+  height: 40px;
+  width: 100px;
+  margin: 3px;
+  background-color: blueviolet;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+.main-container > .bottom-section > .page-control-section > .page-control-button:disabled {
+  height: 40px;
+  width: 100px;
+  margin: 3px;
+  background-color: gray;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+
+
