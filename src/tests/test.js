@@ -1,8 +1,14 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 
-const WEB_URL = 'https://restaurant-f.herokuapp.com/' // or 'http://localhost:3000'
-const DRIVER_SLEEP_IS_ENABLE = false
-const BROWSER_TYPE = 'chrome'
+const WEB_URL = !!process.argv.slice(2).find((i => i.includes('--localhost') || i.includes('-l'))) ? 'http://localhost:3000' : 'https://restaurant-f.herokuapp.com/' 
+
+const DRIVER_SLEEP_IS_ENABLE = !!process.argv.slice(2).find((i => i.includes('--enable-waiting') || i.includes('-e')))
+
+const indexOfCustomBrowser = process.argv.slice(2).findIndex((i => i.includes('--browser') || i.includes('-b')))
+
+const BROWSER_TYPE = indexOfCustomBrowser !== -1 ?  process.argv.slice(2)[indexOfCustomBrowser+1] : 'chrome' 
+if (!BROWSER_TYPE)
+  throw new Error('Please specify a browser')
 
 const testBasicFunctionality = async () => {
   const driver = await new Builder().forBrowser(BROWSER_TYPE).build()
@@ -119,6 +125,7 @@ const testUpdateNumRows = async () => {
 
 
 const runAllTests = async () => {
+  
   await testBasicFunctionality()
   await testChangingPages()
   await testPrevAndNextButtonDisabled()
